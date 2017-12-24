@@ -16,3 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/map', 'MapController@index');
+
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/spark_1', function () {
+    return view('spark_1');
+});
+
+Route::get('/spark_2', function () {
+    return view('spark_2');
+});
