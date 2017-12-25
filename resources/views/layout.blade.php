@@ -46,7 +46,7 @@
               <a href="/spark_2">Spark #2</a>
             </li>
             <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
+              <a href="/spark_3">Spark #3</a>
             </li>
             <li>
               <a href="blank.html">Blank Page</a>

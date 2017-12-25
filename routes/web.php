@@ -29,3 +29,6 @@ Route::get('/spark_1', function () {
 Route::get('/spark_2', function () {
     return view('spark_2');
 });
+Route::get('/spark_3', function () {
+    return view('spark_3');
+});

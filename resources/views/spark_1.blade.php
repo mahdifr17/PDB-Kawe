@@ -17,7 +17,7 @@
           <p>In this trial, we using <strong>spark ml</strong> to cluster position. We cleansing data using java code
 		  and we get output in csv file that contain longitude and latitude. We are using <strong>KMeans algorithm </strong>
 		  to cluster position in spark. Result of this trial is center position of each cluster. The cleansing code, sample data,
-		  spark code, and result can see below. Time to execute program in this training is <strong>14 minutes</strong>.</p>
+		  spark code, and result can see below. </p>
 		  <a href="sb-admin\file\spark1_cc.txt">Cleansing code</a><br>
 		  <a href="sb-admin\file\spark1_sd.txt">Sample data</a><br>
 		  <a href="sb-admin\file\spark1_sc.txt">Spark Code</a><br>

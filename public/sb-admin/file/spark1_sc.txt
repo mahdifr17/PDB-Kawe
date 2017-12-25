@@ -15,7 +15,7 @@ if __name__ == "__main__":
     sc = SparkContext(appName="KMeans")
     lines = sc.textFile("output_positions_v2.csv")
     data = lines.map(parseVector)
-    k = 48
+    k = 9
 
     model = KMeans.train(data, k)
     print("Final centers: " + str(model.clusterCenters))
