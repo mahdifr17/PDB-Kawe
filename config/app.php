@@ -178,7 +178,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // Google Map API
-        'GoogleMaps\ServiceProvider\GoogleMapsServiceProvider',
         Cornford\Googlmapper\MapperServiceProvider::class,
     ],
 
@@ -228,7 +227,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'GoogleMaps' => 'GoogleMaps\Facade\GoogleMapsFacade',
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
     ],
 

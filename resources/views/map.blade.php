@@ -1,3 +1,3 @@
-<div style="width: 500px; height: 500px;">
+<div style="width: 100%; height: 100%;">
 	{!! Mapper::render() !!}
 </div>

@@ -34,25 +34,39 @@
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSpark" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Spark</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseSpark">
-            <li>
-              <a href="/spark_1">Spark #1</a>
-            </li>
-            <li>
-              <a href="/spark_2">Spark #2</a>
-            </li>
-            <li>
-              <a href="/spark_3">Spark #3</a>
-            </li>
-            <li>
-              <a href="blank.html">Blank Page</a>
-            </li>
-          </ul>
+      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSpark" data-parent="#exampleAccordion">
+        <i class="fa fa-fw fa-file"></i>
+        <span class="nav-link-text">Spark</span>
+      </a>
+      <ul class="sidenav-second-level collapse" id="collapseSpark">
+        <li>
+          <a href="/spark_1">Spark #1 - KMeans ML</a>
         </li>
+        <li>
+          <a href="/spark_2">Spark #2 - KMeans MLLib</a>
+        </li>
+        <li>
+          <a href="/spark_3">Spark #3 - BisectingKMeans MLLib</a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseDataBrick" data-parent="#exampleAccordion">
+        <i class="fa fa-fw fa-file"></i>
+        <span class="nav-link-text">DataBrick</span>
+      </a>
+      <ul class="sidenav-second-level collapse" id="collapseDataBrick">
+        <li>
+          <a href="/spark_1">DataBrick #1</a>
+        </li>
+        <li>
+          <a href="/spark_2">DataBrick #2</a>
+        </li>
+        <li>
+          <a href="/spark_3">DataBrick #3</a>
+        </li>
+      </ul>
+    </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -67,6 +81,7 @@
             <i class="fa fa-fw fa-sign-out"></i>PDB KAWE</a>
         </li>
       </ul>
+    
     </div>
   </nav>
   <div class="content-wrapper">
