@@ -23,6 +23,8 @@ Route::get('/spark_1/result', 'MapController@spark1');
 Route::get('/spark_2/result', 'MapController@spark2');
 Route::get('/spark_3/result', 'MapController@spark3');
 
+Route::get('/compare/result', 'MapController@compare');
+
 Route::get('/index', function () {
     return view('index');
 });

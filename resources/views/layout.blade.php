@@ -33,7 +33,7 @@
             <span class="nav-link-text">Our Project</span>
           </a>
         </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Spark">
       <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSpark" data-parent="#exampleAccordion">
         <i class="fa fa-fw fa-file"></i>
         <span class="nav-link-text">Spark</span>
@@ -50,7 +50,7 @@
         </li>
       </ul>
     </li>
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Databricks">
       <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseDataBrick" data-parent="#exampleAccordion">
         <i class="fa fa-fw fa-file"></i>
         <span class="nav-link-text">DataBrick</span>
@@ -66,6 +66,12 @@
           <a href="#">DataBrick #3</a>
         </li>
       </ul>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Compare Result">
+      <a class="nav-link" href="/compare/result">
+        <i class="fa fa-fw fa-dashboard"></i>
+        <span class="nav-link-text">Compare Result</span>
+      </a>
     </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
