@@ -21,7 +21,7 @@
 		  <a href="sb-admin\file\spark1_cc.txt">Cleansing code</a><br>
 		  <a href="sb-admin\file\spark1_sd.txt">Sample data</a><br>
 		  <a href="sb-admin\file\spark1_sc.txt">Spark Code</a><br>
-		  <a href="{{ URL::to('/spark_1_result') }}">Result</a>
+		  <a href="{{ URL::to('/spark_1/result') }}">Result</a>
         </div>
       </div>
     </div>

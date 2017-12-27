@@ -221,7 +221,9 @@ class MapController extends Controller
     {
         Mapper::map(53.07772994, -2.14538955, ['zoom' => 7, 'marker' => false]);        
         for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['radius' => 50000])->informationWindow($arrLatitude[$i], $arrLongitude[$i], 'Total Kejahatan-'.$arrCount[$i], ['open' => true, 'maxWidth'=> 300]);
+            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['radius' => 50000])->informationWindow($arrLatitude[$i], $arrLongitude[$i], 
+            'Total Kejahatan: ' . $arrCount[$i] . '<hr>Latitude: ' . $arrLatitude[$i] . '<br>Longitude: ' . $arrLongitude[$i], 
+            ['open' => true, 'maxWidth'=> 300]);
         }
         return view('map');
     }
@@ -230,7 +232,9 @@ class MapController extends Controller
     {
         Mapper::map(53.07772994, -2.14538955, ['zoom' => 7, 'marker' => false]);        
         for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['radius' => 50000]);
+            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['radius' => 50000])->informationWindow($arrLatitude[$i], $arrLongitude[$i], 
+            'Latitude: ' . $arrLatitude[$i] . '<br>Longitude: ' . $arrLongitude[$i], 
+            ['open' => true, 'maxWidth'=> 300]);
         }
         return view('map');
     }

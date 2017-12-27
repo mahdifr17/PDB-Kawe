@@ -57,13 +57,13 @@
       </a>
       <ul class="sidenav-second-level collapse" id="collapseDataBrick">
         <li>
-          <a href="/spark_1">DataBrick #1</a>
+          <a href="#">DataBrick #1</a>
         </li>
         <li>
-          <a href="/spark_2">DataBrick #2</a>
+          <a href="#">DataBrick #2</a>
         </li>
         <li>
-          <a href="/spark_3">DataBrick #3</a>
+          <a href="#">DataBrick #3</a>
         </li>
       </ul>
     </li>

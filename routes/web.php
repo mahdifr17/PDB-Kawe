@@ -15,13 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/databrick_1_result', 'MapController@dataBrick1');
-Route::get('/databrick_2_result', 'MapController@dataBrick2');
-Route::get('/databrick_3_result', 'MapController@dataBrick3');
+Route::get('/databrick_1/result', 'MapController@dataBrick1');
+Route::get('/databrick_2/result', 'MapController@dataBrick2');
+Route::get('/databrick_3/result', 'MapController@dataBrick3');
 
-Route::get('/spark_1_result', 'MapController@spark1');
-Route::get('/spark_2_result', 'MapController@spark2');
-Route::get('/spark_3_result', 'MapController@spark3');
+Route::get('/spark_1/result', 'MapController@spark1');
+Route::get('/spark_2/result', 'MapController@spark2');
+Route::get('/spark_3/result', 'MapController@spark3');
 
 Route::get('/index', function () {
     return view('index');
