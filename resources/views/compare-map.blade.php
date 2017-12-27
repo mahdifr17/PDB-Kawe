@@ -37,26 +37,34 @@
 			center: new google.maps.LatLng(53.07772994, -2.14538955),
 			zoom: 7
 			});
-			var arrLat = {{ json_encode($arrLat) }};
-			var arrLng = {{ json_encode($arrLng) }};
-			var flag = false;
+			var arrLatSpark1 = {{ json_encode($latSpark1) }};
+			var arrLngSpark1 = {{ json_encode($lngSpark1) }};
+            var arrLatSpark2 = {{ json_encode($latSpark2) }};
+			var arrLngSpark2 = {{ json_encode($lngSpark2) }};
+
+            var arrLatDatabrick1 = {{ json_encode($latDatabrick1) }};
+			var arrLngDatabrick1 = {{ json_encode($lngDatabrick1) }};
+            var countDatabrick1 = {{ json_encode($countDatabrick1) }}
+            var arrLatDatabrick2 = {{ json_encode($latDatabrick2) }};
+			var arrLngDatabrick2 = {{ json_encode($lngDatabrick2) }};
+
 			var color = 'FFFFFF';
 			var iconBase = 'https://dummyimage.com/15x15/';
 			var icons = {
 				high: {
-					name: '> 4.000.000',
+					name: 'Spark #1 - KMeans ML',
 					icon: iconBase + 'ff0000/ff0000.gif'
 				},
 				med_end: {
-					name: '3.000.000 - 3.999.999',
+					name: 'Spark #2 - KMeans MLLib',
 					icon: iconBase + 'ff9500/ff9500.png'
 				},
 				med: {
-					name: '2.000.000 - 2.999.999',
+					name: 'Databrick #1 - KMeans ML',
 					icon: iconBase + 'fff200/fff200.png'
 				},
 				low_end: {
-					name: '1.000.000 - 1.999.999',
+					name: 'Databrick #2 - Biscreting KMeans ML',
 					icon: iconBase + 'bbff00/bbff00.png'
 				},
 				low: {
@@ -65,52 +73,25 @@
 				}
 			};
 
-			if ({{ json_encode($arrCount) }} === undefined || {{ json_encode($arrCount) }} === null) {
-				flag = false;
-			}
-			else {
-				var arrCount = {{ json_encode($arrCount) }};
-				flag = true;
-			}
+            var legend = document.getElementById('legend');
+            for (var key in icons) {
+                var type = icons[key];
+                var name = type.name;
+                var icon = type.icon;
+                var div = document.createElement('div');
+                div.innerHTML = '<img src="' + icon + '">' + name;
+                legend.appendChild(div);
+            }
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
-			if (flag){
-				var legend = document.getElementById('legend');
-				for (var key in icons) {
-					var type = icons[key];
-					var name = type.name;
-					var icon = type.icon;
-					var div = document.createElement('div');
-					div.innerHTML = '<img src="' + icon + '">' + name;
-					legend.appendChild(div);
-				}
-				map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
-			}
+            drawMap(map, '#ff0000', false, arrLatSpark1, arrLngSpark1, null);
+            drawMap(map, '#ff9500', false, arrLatSpark2, arrLngSpark2, null);
 
-			for (let index = 0; index < arrLat.length; index++) {
-				if (flag){
-					if (arrCount[index] > 0 && arrCount[index] <= 1000000) {
-						color = '#3EFF00'; 					
-					}
-					else if (arrCount[index] > 1000000 && arrCount[index] <= 2000000) {
-						color = '#BDFF00'; 
-					}
-					else if (arrCount[index] > 2000000 && arrCount[index] <= 3000000) {
-						color = '#FFF300'; 
-					}
-					else if (arrCount[index] > 3000000 && arrCount[index] <= 4000000) {
-						color = '#FF9300'; 
-					}
-					else if (arrCount[index] > 4000000) {
-						color = '#FF0000'; 
-					}
-					else {
-						color = '#FFFFFF';					
-					}
-				}
-				else {
-					color = '#FF0000';
-				}
-
+            drawMap(map, '#fff200', true, arrLatDatabrick1, arrLngDatabrick1, countDatabrick1);
+            drawMap(map, '#bbff00', false, arrLatDatabrick2, arrLngDatabrick2, null);            
+        }
+        function drawMap(map, color, flag, arrLat, arrLng, arrCount){
+            for (let index = 0; index < arrLat.length; index++) {
 				var radius = new google.maps.Circle({
 					strokeColor: color,
 					strokeOpacity: 0.8,
@@ -124,6 +105,7 @@
 					},
 					radius: 50000
 				});
+                console.log(color);
 
 				var point = new google.maps.LatLng(
 					parseFloat(arrLat[index]),
@@ -158,7 +140,6 @@
 					infoWindow.setContent(this.info);
 					infoWindow.open(map, this);
 				});
-
 			}
         }
     </script>

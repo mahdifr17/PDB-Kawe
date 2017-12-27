@@ -57,10 +57,10 @@
       </a>
       <ul class="sidenav-second-level collapse" id="collapseDataBrick">
         <li>
-          <a href="#">DataBrick #1</a>
+          <a href="/databrick_1/result">DataBrick #1 - KMeans ML</a>
         </li>
         <li>
-          <a href="#">DataBrick #2</a>
+          <a href="/databrick_2/result">DataBrick #2 - BiscretingKMeans MLLib</a>
         </li>
         <li>
           <a href="#">DataBrick #3</a>

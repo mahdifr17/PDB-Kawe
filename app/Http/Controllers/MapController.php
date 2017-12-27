@@ -9,52 +9,24 @@ use Mapper;
 class MapController extends Controller
 {
     /* 
-        Done
+        KMeans ML
     */
     public function dataBrick1()
     {
         $arrLatitude = $this->getDatabrick1Lat();
         $arrLongitude = $this->getDatabrick1Long();
         $arrCount = $this->getDatabrick1Count();
-        return $this->generateMapWithCount('#FF0000', $arrLatitude, $arrLongitude, $arrCount);
+        return $this->generateMapWithCount($arrLatitude, $arrLongitude, $arrCount);
     }
 
     /* 
-    
+        Biscreting KMeans ML
     */
     public function dataBrick2()
     {
-        $arrLatitude = array(51.33094528,
-                            51.62840455,
-                            54.48125503,
-                            51.5174084,
-                            54.51262717,
-                            51.14569694,
-                            52.71681114,
-                            53.07772994,
-                            53.47874519,
-                        );
-        $arrLongitude = array(-3.41009542, 
-                            0.81708516,
-                            -1.44745039,
-                            -0.21704177,
-                            -6.03053087,
-                            -1.53349564,
-                            -1.56248113,
-                            -0.14538955,
-                            -2.53252477,
-                        );
-        $arrCount = array(1585407, 
-                            1353933,
-                            2379805,
-                            5157079,
-                            99684,
-                            1687174,
-                            4213788,
-                            1171391,
-                            4826018,
-                        );
-        return $this->generateMap($arrLatitude, $arrLongitude, $arrCount);
+        $arrLatitude = $this->getDatabrick2Lat();
+        $arrLongitude = $this->getDatabrick2Long();
+        return $this->generateMap($arrLatitude, $arrLongitude);
     }
 
     /*                                                                                          
@@ -62,37 +34,6 @@ class MapController extends Controller
     */
     public function dataBrick3()
     {
-        $arrLatitude = array(51.33094528,
-                            51.62840455,
-                            54.48125503,
-                            51.5174084,
-                            54.51262717,
-                            51.14569694,
-                            52.71681114,
-                            53.07772994,
-                            53.47874519,
-                        );
-        $arrLongitude = array(-3.41009542, 
-                            0.81708516,
-                            -1.44745039,
-                            -0.21704177,
-                            -6.03053087,
-                            -1.53349564,
-                            -1.56248113,
-                            -0.14538955,
-                            -2.53252477,
-                        );
-        $arrCount = array(1585407, 
-                            1353933,
-                            2379805,
-                            5157079,
-                            99684,
-                            1687174,
-                            4213788,
-                            1171391,
-                            4826018,
-                        );
-        return $this->generateMap($arrLatitude, $arrLongitude, $arrCount);
     }
 
     /*                                                                                          
@@ -102,7 +43,7 @@ class MapController extends Controller
     {
         $arrLatitude = $this->getSpark1Lat();
         $arrLongitude = $this->getSpark1Long();
-        return $this->generateMap('#FF0000', $arrLatitude, $arrLongitude);
+        return $this->generateMap($arrLatitude, $arrLongitude);
     }
 
     /*                                                                                          
@@ -112,7 +53,7 @@ class MapController extends Controller
     {
         $arrLatitude = $this->getSpark2Lat();
         $arrLongitude = $this->getSpark2Long();
-        return $this->generateMap('#FF0000', $arrLatitude, $arrLongitude);
+        return $this->generateMap($arrLatitude, $arrLongitude);
     }
 
     /*                                                                                          
@@ -165,52 +106,39 @@ class MapController extends Controller
         $longDatabrick1 = $this->getDatabrick1Long();
         $countDatabrick1 = $this->getDatabrick1Count();
 
-        Mapper::map(53.07772994, -2.14538955, ['zoom' => 7, 'marker' => false]);
-        // Spark 1
-        for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $latSpark1[$i], 'longitude' => $longSpark1[$i]]], ['strokeColor' => '#79fc05', 'fillColor' => '#79fc05', 'radius' => 50000])
-            ->informationWindow($latSpark1[$i], $longSpark1[$i], 
-            'Latitude: ' . $latSpark1[$i] . '<br>Longitude: ' . $longSpark1[$i], 
-            ['open' => false, 'maxWidth'=> 300]);
-        }
-        // Spark 2
-        for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $latSpark2[$i], 'longitude' => $longSpark2[$i]]], ['strokeColor' => '#FF0000', 'fillColor' => '#FF0000', 'radius' => 50000])
-            ->informationWindow($latSpark2[$i], $longSpark2[$i], 
-            'Latitude: ' . $latSpark2[$i] . '<br>Longitude: ' . $longSpark2[$i], 
-            ['open' => false, 'maxWidth'=> 300]);
-        }
-        // Databrick 1
-        for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $latDatabrick1[$i], 'longitude' => $longDatabrick1[$i]]], ['strokeColor' => '#FFFF00', 'fillColor' => '#FFFF00', 'radius' => 50000])
-            ->informationWindow($latDatabrick1[$i], $longDatabrick1[$i], 
-            'Total Kejahatan: ' . $countDatabrick1[$i] . '<hr>Latitude: ' . $latDatabrick1[$i] . '<br>Longitude: ' . $longDatabrick1[$i], 
-            ['open' => false, 'maxWidth'=> 300]);
-        }
+        $latDatabrick2 = $this->getDatabrick2Lat();
+        $longDatabrick2 = $this->getDatabrick2Long();
 
-        return view('map');
+        return view('compare-map', [
+            'latSpark1' => $latSpark1,
+            'lngSpark1' => $longSpark1,
+            'latSpark2' => $latSpark2,
+            'lngSpark2' => $longSpark2,
+
+            'latDatabrick1' => $latDatabrick1,
+            'lngDatabrick1' => $longDatabrick1,
+            'countDatabrick1' => $countDatabrick1,
+            'latDatabrick2' => $latDatabrick2,
+            'lngDatabrick2' => $longDatabrick2,
+        ]);
     }
 
-    private function generateMapWithCount($fillColor, array $arrLatitude, array $arrLongitude, array $arrCount)
+    private function generateMapWithCount(array $arrLatitude, array $arrLongitude, array $arrCount)
     {
-        Mapper::map(53.07772994, -2.14538955, ['zoom' => 7, 'marker' => false]);        
-        for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['strokeColor' => $fillColor, 'fillColor' => $fillColor, 'radius' => 50000])->informationWindow($arrLatitude[$i], $arrLongitude[$i], 
-            'Total Kejahatan: ' . $arrCount[$i] . '<hr>Latitude: ' . $arrLatitude[$i] . '<br>Longitude: ' . $arrLongitude[$i], 
-            ['open' => true, 'maxWidth'=> 300]);
-        }
-        return view('map');
+        return view('map', [
+            'arrLat' => $arrLatitude,
+            'arrLng' => $arrLongitude,
+            'arrCount' => $arrCount
+        ]);
     }
     
-    private function generateMap($fillColor, array $arrLatitude, array $arrLongitude)
+    private function generateMap(array $arrLatitude, array $arrLongitude)
     {
-        Mapper::map(53.07772994, -2.14538955, ['zoom' => 7, 'marker' => false]);        
-        for ($i=0; $i < 9; $i++) { 
-            Mapper::circle([['latitude' => $arrLatitude[$i], 'longitude' => $arrLongitude[$i]]], ['strokeColor' => $fillColor, 'fillColor' => $fillColor, 'radius' => 50000])->informationWindow($arrLatitude[$i], $arrLongitude[$i], 
-            'Latitude: ' . $arrLatitude[$i] . '<br>Longitude: ' . $arrLongitude[$i], 
-            ['open' => true, 'maxWidth'=> 300]);
-        }
-        return view('map');
+        return view('map', [
+            'arrLat' => $arrLatitude,
+            'arrLng' => $arrLongitude,
+            'arrCount' => null
+        ]);
     }
 
     private function getSpark1Long()
@@ -320,12 +248,32 @@ class MapController extends Controller
 
     private function getDatabrick2Long()
     {
-        # code...
+        $arrLongitude = array(-3.7441027,
+                            -2.14693686,
+                            -2.5089698,
+                            -1.39759671,
+                            -1.24958541,
+                            -0.97142952,
+                            -0.15613262,
+                            0.63354896,
+                            1.97843159e-02,
+                        );
+        return $arrLongitude;
     }
 
     private function getDatabrick2Lat()
     {
-        # code...
+        $arrLatitude = array(51.54782719,
+                            52.38839324,
+                            53.52744447,
+                            53.92771066,
+                            51.03615209,
+                            52.12028742,
+                            51.49169413,
+                            51.56637895,
+                            5.28580027e+01,
+                        );
+        return $arrLatitude;
     }
 
     private function getDatabrick2Count()
