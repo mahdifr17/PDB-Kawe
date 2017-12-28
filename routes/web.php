@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/index');
 });
 
 Route::get('/databrick_1/result', 'MapController@dataBrick1');
