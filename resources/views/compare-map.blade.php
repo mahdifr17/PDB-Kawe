@@ -44,9 +44,12 @@
 
             var arrLatDatabrick1 = {{ json_encode($latDatabrick1) }};
 			var arrLngDatabrick1 = {{ json_encode($lngDatabrick1) }};
-            var countDatabrick1 = {{ json_encode($countDatabrick1) }}
+            var countDatabrick1 = {{ json_encode($countDatabrick1) }};
             var arrLatDatabrick2 = {{ json_encode($latDatabrick2) }};
 			var arrLngDatabrick2 = {{ json_encode($lngDatabrick2) }};
+			var arrLatDatabrick3 = {{ json_encode($latDatabrick3) }};
+			var arrLngDatabrick3 = {{ json_encode($lngDatabrick3) }};
+            var countDatabrick3 = {{ json_encode($countDatabrick3) }};
 
 			var color = 'FFFFFF';
 			var iconBase = 'https://dummyimage.com/15x15/';
@@ -68,7 +71,7 @@
 					icon: iconBase + 'bbff00/bbff00.png'
 				},
 				low: {
-					name: '0 - 999.999',
+					name: 'Databrick #3 - Custom',
 					icon: iconBase + '40ff00/40ff00.png'
 				}
 			};
@@ -88,8 +91,10 @@
             drawMap(map, '#ff9500', false, arrLatSpark2, arrLngSpark2, null);
 
             drawMap(map, '#fff200', true, arrLatDatabrick1, arrLngDatabrick1, countDatabrick1);
-            drawMap(map, '#bbff00', false, arrLatDatabrick2, arrLngDatabrick2, null);            
+            drawMap(map, '#bbff00', false, arrLatDatabrick2, arrLngDatabrick2, null);
+			drawMap(map, '#40ff00', true, arrLatDatabrick3, arrLngDatabrick3, countDatabrick3);
         }
+		
         function drawMap(map, color, flag, arrLat, arrLng, arrCount){
             for (let index = 0; index < arrLat.length; index++) {
 				var radius = new google.maps.Circle({

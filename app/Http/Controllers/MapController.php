@@ -34,6 +34,10 @@ class MapController extends Controller
     */
     public function dataBrick3()
     {
+        $arrLatitude = $this->getDatabrick3Lat();
+        $arrLongitude = $this->getDatabrick3Long();
+        $arrCount = $this->getDatabrick3Count();
+        return $this->generateMapWithCount($arrLatitude, $arrLongitude, $arrCount);
     }
 
     /*                                                                                          
@@ -109,6 +113,10 @@ class MapController extends Controller
         $latDatabrick2 = $this->getDatabrick2Lat();
         $longDatabrick2 = $this->getDatabrick2Long();
 
+        $latDatabrick3 = $this->getDatabrick3Lat();
+        $longDatabrick3 = $this->getDatabrick3Long();
+        $countDatabrick3 = $this->getDatabrick3Count();
+
         return view('compare-map', [
             'latSpark1' => $latSpark1,
             'lngSpark1' => $longSpark1,
@@ -120,6 +128,9 @@ class MapController extends Controller
             'countDatabrick1' => $countDatabrick1,
             'latDatabrick2' => $latDatabrick2,
             'lngDatabrick2' => $longDatabrick2,
+            'latDatabrick3' => $latDatabrick3,
+            'lngDatabrick3' => $longDatabrick3,
+            'countDatabrick3' => $countDatabrick3,
         ]);
     }
 
@@ -283,16 +294,46 @@ class MapController extends Controller
 
     private function getDatabrick3Long()
     {
-        # code...
+        $arrLongitude = array(-0.15931191,
+                            -2.87259142,
+                            -0.72140065,
+                            -3.34004466,
+                            -1.86993476,
+                            -1.47562803,
+                            -1.75686087,
+                            0.90768687,
+                            -1.37880455,
+                        );
+        return $arrLongitude;
     }
 
     private function getDatabrick3Lat()
     {
-        # code...
+        $arrLatitude = array(51.51734029,
+                            53.52871918,
+                            53.25522812,
+                            51.28603116,
+                            53.56966014,
+                            54.82014664,
+                            52.47886174,
+                            51.81232548,
+                            51.12808072,
+                        );
+        return $arrLatitude;
     }
 
     private function getDatabrick3Count()
     {
-        # code...
+        $arrCount = array(3530076, 
+                            1097394,
+                            890795,
+                            1072866,
+                            1689131,
+                            636583,
+                            1430228,
+                            815513,
+                            786848,
+                        );
+        return $arrCount;
     }
 }

@@ -63,7 +63,7 @@
           <a href="/databrick_2/result">DataBrick #2 - BiscretingKMeans MLLib</a>
         </li>
         <li>
-          <a href="#">DataBrick #3</a>
+          <a href="/databrick_3/result">DataBrick #3 - Custom</a>
         </li>
       </ul>
     </li>
