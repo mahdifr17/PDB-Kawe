@@ -15,7 +15,12 @@
 	      <div class="col-12">
 	        
 	        <h1>Our Project</h1>
-	        <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+	        <p>
+	        	Kawe merupakan aplikasi yang berfungsi untuk membantu masyarakat dan kepolisian UK untuk mengetahui daerah yang memiliki tingkat kriminalitas yang tinggi.
+	 			Aplikasi ini akan menampilkan peta lokasi daerah kriminalitas dan akan menunjukkan total kriminalitas yang terjadi.
+	        </p>
+
+	        <img src="{{ URL::to('/') }}/imgs/results.jpg" alt="result" style="width:800px;height:400px	
 	      </div>
 	    </div>
     </div>
