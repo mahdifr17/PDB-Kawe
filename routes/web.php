@@ -39,3 +39,13 @@ Route::get('/spark_2', function () {
 Route::get('/spark_3', function () {
     return view('spark_3');
 });
+
+Route::get('/k_9', function () {
+    return view('k_9');
+});
+Route::get('/k_9/map_final', function () {
+    return view('map_final');
+});
+Route::get('/k_20', function () {
+    return view('k_20');
+});

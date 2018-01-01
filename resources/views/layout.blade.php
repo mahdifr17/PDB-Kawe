@@ -73,6 +73,22 @@
         <span class="nav-link-text">Compare Result</span>
       </a>
     </li>
+
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Final">
+      <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFinal" data-parent="#exampleAccordion">
+        <i class="fa fa-fw fa-file"></i>
+        <span class="nav-link-text">Final</span>
+      </a>
+      <ul class="sidenav-second-level collapse" id="collapseFinal">
+        <li>
+          <a href="/k_9">9 Cluster</a>
+        </li>
+        <li>
+          <a href="/k_20">20 Cluster</a>
+        </li>
+      </ul>
+    </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
